@@ -1,0 +1,4 @@
+-cp .
+-debug
+-main MulticastTest
+-cpp bin
