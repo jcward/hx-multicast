@@ -1,4 +1,5 @@
--cp .
+-cp src
+-cp test
 -debug
--main MulticastTest
+-main MCSmokeTest
 -cpp bin
