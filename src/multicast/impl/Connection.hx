@@ -54,7 +54,6 @@ class Connection
     if (!is_bound) return false;
     try {
       udp.sendTo(b,0,b.length, addr);
-      trace('Sent ${ b.length } bytes (from me)');
       return true;
     } catch (e:haxe.io.Error) {
       switch e {
