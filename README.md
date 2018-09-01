@@ -5,7 +5,7 @@ Haxe UDP multicast library for hxcpp
 [![Build Status](https://travis-ci.com/jcward/hx-multicast.svg?branch=master)](https://travis-ci.com/jcward/hx-multicast)
 
 About
-#####
+====
 
 A simple UDP multicast library for Haxe / HXCPP, in simple .hx source, no extra ndlls or build steps.
 
@@ -16,7 +16,7 @@ Note that some routers, networks, or devices may not support UDP multicast. Also
 Typical use cases are low-latency, low-bandwidth message passing. All message serializations must fit in the pre-allocated buffer size.
 
 Example Usage
-#############
+====
 
 ```
 var mc = new multicast.Client();
