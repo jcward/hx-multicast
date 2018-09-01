@@ -22,7 +22,7 @@ Example Usage
 
 Install with `haxelib install multicast`, and add `-lib multicast` to your hxml. For OpenFL, add `<haxelib name="multicast" />` to your `project.xml` file.
 
-`Test.hx`
+Example Test.hx:
 ```haxe
 class Test
 {
@@ -39,7 +39,7 @@ class Test
       while (mc.has_next()) {
         var payload = mc.read();
         if (payload!=null && peers.indexOf(payload.from_uid)<0) {
-          trace('Welcome, ${ payload.from_uid } !');
+          trace('Hello, ${ payload.from_uid } !');
           peers.push(payload.from_uid);
         }
       }
@@ -52,3 +52,7 @@ class Test
 // t.stop();
 // mc.close();
 ```
+
+Running this test from two different terminals:
+
+![image](https://user-images.githubusercontent.com/2192439/44942400-16c74a00-ad6d-11e8-84af-0429a6961cbc.png)
