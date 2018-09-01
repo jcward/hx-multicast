@@ -1,6 +1,6 @@
 # hx-multicast
 
-Haxe UDP multicast library for hxcpp
+Haxe UDP multicast library for hxcpp. Alpha / proof of concept -- feedback appreciated!
 
 [![Build Status](https://travis-ci.com/jcward/hx-multicast.svg?branch=master)](https://travis-ci.com/jcward/hx-multicast)
 
