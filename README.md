@@ -9,6 +9,8 @@ About
 
 A simple UDP multicast library for Haxe / HXCPP, in simple .hx source, no extra ndlls or build steps.
 
+Works with hxcpp 3.4.49 up to the current release 4.0.4.
+
 UDP multicast allows message passing between many clients (devices or processes) on the same local area network (LAN), transmitting messages between them without any IP or host information. Messages sent from any client are delivered to all other clients.
 
 Note that some routers, networks, or devices may not support UDP multicast. Also, with UDP, packets are not guaranteed to arrive, and are not guaranteed to arrive in the order they were sent. You should assume any packet could be lost.
@@ -18,23 +20,35 @@ Typical use cases are low-latency, low-bandwidth message passing. All message se
 Example Usage
 ====
 
-```haxe
-var mc = new multicast.Client();
+Install with `haxelib install multicast`, and add `-lib multicast` to your hxml. For OpenFL, add `<haxelib name="multicast" />` to your `project.xml` file.
 
-// My uid: mc.uid
-var peers = [ mc.uid ];
-var t = new haxe.Timer(2000);
-t.run = function() {
-  mc.emit({ type:"ping" });
-  while (mc.has_next()) {
-    var payload = mc.read();
-    if (payload!=null && peers.indexOf(payload.from_uid)<0) {
-      peers.push(payload.from_uid);
+`Test.hx`
+```haxe
+class Test
+{
+  public static function main()
+  {
+    var mc = new multicast.Client();
+    trace('I am: ${ mc.uid }');
+
+    // My uid: mc.uid
+    var peers = [ mc.uid ];
+    var t = new haxe.Timer(2000);
+    t.run = function() {
+      mc.emit({ type:"ping" });
+      while (mc.has_next()) {
+        var payload = mc.read();
+        if (payload!=null && peers.indexOf(payload.from_uid)<0) {
+          trace('Welcome, ${ payload.from_uid } !');
+          peers.push(payload.from_uid);
+        }
+      }
     }
+
   }
 }
 
-// ... sometime later, cleanup
-t.stop();
-mc.close();
+// ... some time later, cleanup
+// t.stop();
+// mc.close();
 ```
