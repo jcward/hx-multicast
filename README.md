@@ -33,6 +33,9 @@ class Test
 
     // My uid: mc.uid
     var peers = [ mc.uid ];
+
+    // In a typical game setting, instead of a Timer, you might
+    // send+check messages from your event loop.
     var t = new haxe.Timer(2000);
     t.run = function() {
       mc.emit({ type:"ping" });
