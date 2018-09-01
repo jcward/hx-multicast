@@ -33,4 +33,8 @@ t.run = function() {
     }
   }
 }
+
+// ... sometimes later, cleanup
+t.stop();
+mc.close();
 ```
