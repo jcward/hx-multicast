@@ -34,7 +34,7 @@ t.run = function() {
   }
 }
 
-// ... sometimes later, cleanup
+// ... sometime later, cleanup
 t.stop();
 mc.close();
 ```
