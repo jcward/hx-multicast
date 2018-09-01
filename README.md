@@ -22,14 +22,14 @@ Example Usage
 var mc = new multicast.Client();
 
 // My uid: mc.uid
-var members = [ mc.uid ];
+var peers = [ mc.uid ];
 var t = new haxe.Timer(2000);
 t.run = function() {
   mc.emit({ type:"ping" });
   while (mc.has_next()) {
     var payload = mc.read();
-    if (members.indexOf(payload.from_uid)<0) {
-      members.push(payload.from_uid);
+    if (payload!=null && peers.indexOf(payload.from_uid)<0) {
+      peers.push(payload.from_uid);
     }
   }
 }
