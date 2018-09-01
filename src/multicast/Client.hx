@@ -64,7 +64,11 @@ class Client
     var result = connection.read(read_buf);
     if (result.bytes_read==0) return null;
     var payload:Payload = try unserialize(read_buf) catch (e:Dynamic) null;
-    if (payload!=null && payload.from_uid!=uid) return payload;
+    if (payload!=null) {
+      // Ignore messages from me and keep peeking
+      if (payload.from_uid==uid) return peek_next();
+      return payload;
+    }
     return null;
   }
 

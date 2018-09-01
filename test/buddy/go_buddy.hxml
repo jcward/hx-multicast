@@ -1,0 +1,12 @@
+-cp ../../src
+
+# Test
+-lib buddy
+-debug
+-cp .
+-cpp bin
+-main Main
+
+--next
+-cmd ./bin/Main-debug
+
