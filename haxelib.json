@@ -1,0 +1,11 @@
+{
+	"name": "multicast",
+	"url": "http://github.com/jcward/hx-multicast",
+	"license": "MIT",
+	"tags": ["cpp","utility"],
+	"description": "Haxe UDP multicast library for hxcpp.",
+	"version": "0.0.2",
+	"releasenote": "See recently closed issues in github.",
+	"contributors": [ "jeff.ward" ],
+	"dependencies": {}
+}
