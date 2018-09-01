@@ -18,7 +18,7 @@ Typical use cases are low-latency, low-bandwidth message passing. All message se
 Example Usage
 ====
 
-```
+```haxe
 var mc = new multicast.Client();
 
 // My uid: mc.uid
